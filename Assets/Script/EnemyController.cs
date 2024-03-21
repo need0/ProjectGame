@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
     public float waitAtPoint = 2f;
     private float waitCounter;
 
+    public float distanceToPlayer;
+
     public enum AIState
     {
         isDead, isSeekTargetPoint, isSeekPlayer, isAttack

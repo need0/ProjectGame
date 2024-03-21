@@ -15,6 +15,10 @@ public class CheckWinner : MonoBehaviour
     public float smoothSpeed = 1.0f;
 
     public Transform playerRotation;
+
+    public string sceneToLoadNextMap = "Demo";
+    public string NotMap = "Demo";
+
     private void Awake()
     {
         instance = this;
@@ -40,7 +44,7 @@ public class CheckWinner : MonoBehaviour
     {
         if (target != null && isWinner)
         {
-            Vector3 desiredPostion = new Vector3(target.position.x-40, target.position.y+7.5f, target.position.z +16.5f);
+            Vector3 desiredPostion = new Vector3(target.position.x, target.position.y, target.position.z +16.5f);
 
             Vector3 smoothedPosition = Vector3.Lerp(winnerCamera.transform.position, desiredPostion, smoothSpeed*Time.deltaTime);
 
@@ -55,7 +59,10 @@ public class CheckWinner : MonoBehaviour
         if (other.CompareTag("Player") && PlayerController.instance.groundedPlayer)
         {
             isWinner = true;
-            SceneManager.LoadScene("Demo");
+            if (SceneManager.GetActiveScene().name != NotMap)
+            {
+                SceneManager.LoadScene(sceneToLoadNextMap);
+            }
         }
     }
 }
