@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     public bool isInvincible = false;
 
 
+    public Light light;
+
 
     public static PlayerController instance;
 
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
         damageParticle.Stop();
         deadParticle.Stop();
         Heal.Stop();
+        light.enabled = false;
     }
 
     // Start is called before the first frame update
@@ -51,6 +54,7 @@ public class PlayerController : MonoBehaviour
         damageParticle.Stop();
         deadParticle.Stop();
         Heal.Stop();
+        light.enabled = false;
 
     }
 
@@ -60,6 +64,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !isCooldown && !isDead) 
         {
             Invincible();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            FlashLight();
         }
 
         if (isInvincible)
@@ -197,6 +206,11 @@ public class PlayerController : MonoBehaviour
         isCooldown = true;
         yield return new WaitForSeconds(cooldownTime*2);
         isCooldown = false;
+    }
+
+    void FlashLight()
+    {
+        light.enabled = !light.enabled;
     }
 
 
