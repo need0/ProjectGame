@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckWinner : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class CheckWinner : MonoBehaviour
         if (other.CompareTag("Player") && PlayerController.instance.groundedPlayer)
         {
             isWinner = true;
+            SceneManager.LoadScene("Demo");
         }
     }
 }
