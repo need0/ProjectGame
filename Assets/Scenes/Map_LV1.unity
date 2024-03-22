@@ -3535,7 +3535,7 @@ MonoBehaviour:
   isCooldown: 0
   cooldownTime: 5
   isInvincible: 0
-  light: {fileID: 1106323133}
+  FlashL: {fileID: 1106323133}
 --- !u!4 &498866853
 Transform:
   m_ObjectHideFlags: 0
@@ -7664,8 +7664,8 @@ MonoBehaviour:
   target: {fileID: 958011648}
   smoothSpeed: 1
   playerRotation: {fileID: 363225904}
-  sceneToLoadNextMap: Demo
-  NotMap: Demo
+  sceneToLoadNextMap: UndergroundScene
+  NotMap: UndergroundScene
 --- !u!65 &1095484241
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public bool isInvincible = false;
 
 
-    public Light light;
+    public Light FlashL;
 
 
     public static PlayerController instance;
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         damageParticle.Stop();
         deadParticle.Stop();
         Heal.Stop();
-        light.enabled = false;
+        FlashL.enabled = false;
     }
 
     // Start is called before the first frame update
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         damageParticle.Stop();
         deadParticle.Stop();
         Heal.Stop();
-        light.enabled = false;
+        FlashL.enabled = false;
 
     }
 
@@ -210,7 +210,7 @@ public class PlayerController : MonoBehaviour
 
     void FlashLight()
     {
-        light.enabled = !light.enabled;
+        FlashL.enabled = !FlashL.enabled;
     }
 
 
