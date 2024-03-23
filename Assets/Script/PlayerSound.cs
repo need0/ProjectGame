@@ -9,6 +9,7 @@ public class PlayerSound : MonoBehaviour
     public List<AudioClip> playerWalking;
     public AudioClip playerJumping;
     public AudioClip playerdead;
+    public AudioClip playerAttcak;
     public AudioClip playerHeal;
     public AudioClip playerFlash;
     private AudioSource playerSource;
@@ -39,6 +40,11 @@ public class PlayerSound : MonoBehaviour
         playerSource.PlayOneShot(playerdead);
     }
 
+    public void playAttack()
+    {
+        playerSource.PlayOneShot(playerAttcak);
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +67,7 @@ public class PlayerSound : MonoBehaviour
         {
             playerSource.PlayOneShot(playerFlash);
         }
+
     }
 
     IEnumerator Cooldown()

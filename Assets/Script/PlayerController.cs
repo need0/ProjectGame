@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,24 +19,27 @@ public class PlayerController : MonoBehaviour
 
     public bool groundedPlayer;
     [SerializeField] private float jumpHeight = 2.5f;
-    
+
+    [SerializeField] private float delayTime = 1.0f;
+
     public Animator animator;
 
     public bool isDead;
+    public bool isCooldown = false;
+    public bool isInvincible = false;
+    public Light FlashL;
+    public Light HoleL;
+
+    public float cooldownTime = 5f;
 
     public ParticleSystem damageParticle;
     public ParticleSystem deadParticle;
     public ParticleSystem Heal;
 
-    public bool isCooldown = false;
-    public float cooldownTime = 5f;
-    public bool isInvincible = false;
-
-
-    public Light FlashL;
-
 
     public static PlayerController instance;
+    public GameObject[] attackHitBox;
+    public  Collider HitBox;
 
     private void Awake()
     {
@@ -54,6 +59,7 @@ public class PlayerController : MonoBehaviour
         damageParticle.Stop();
         deadParticle.Stop();
         Heal.Stop();
+        HoleL.enabled = false;
         FlashL.enabled = false;
 
     }
@@ -66,9 +72,14 @@ public class PlayerController : MonoBehaviour
             Invincible();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && !isDead)
         {
             FlashLight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isDead)
+        {
+            Attack();
         }
 
         if (isInvincible)
@@ -161,6 +172,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     public void ShowDamageParticle()
     {
         if (!isInvincible)
@@ -197,20 +209,40 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Cooldown());
         isDead = false;
     }
+
     IEnumerator Cooldown()
     {
         isCooldown = true;
+        HoleL.enabled = true;
         yield return new WaitForSeconds(cooldownTime);
+        HoleL.enabled = false;
         isDead = false;
         isInvincible = false;
         Heal.Stop();
         yield return new WaitForSeconds(cooldownTime*2);
         isCooldown = false;
+        
     }
 
     void FlashLight()
     {
         FlashL.enabled = !FlashL.enabled;
+    }
+
+    private IEnumerator DelayedDestroy(GameObject objectToDestroy, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(objectToDestroy);
+    }
+
+    private void Attack()
+    {
+        animator.SetTrigger("Attack");
+
+        /*if (HitBox.CompareTag("Enemy")|| gameObject.name.Equals("Cube(1)"))
+        {
+             StartCoroutine(DelayedDestroy(HitBox.gameObject, delayTime));
+        }*/
     }
 
 

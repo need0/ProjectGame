@@ -37,6 +37,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       /* if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            AttackEnemy();
+        }*/
+
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
         Debug.Log(distanceToPlayer);
 
@@ -130,5 +135,19 @@ public class EnemyController : MonoBehaviour
             lightEnemy.color = Color.green;
         }
     }
+
+   /* private void AttackEnemy()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        {
+            if (hit.collider.CompareTag("HitBox")) // ตรวจสอบว่าโดน HitBox
+            {
+                GameObject enemy = hit.collider.gameObject; // เข้าถึง Enemy
+                Destroy(enemy); // ทำลาย Enemy
+            }
+        }
+    }*/
+
 
 }
