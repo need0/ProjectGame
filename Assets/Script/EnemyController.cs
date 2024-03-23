@@ -18,6 +18,10 @@ public class EnemyController : MonoBehaviour
 
     public float distanceToPlayer;
 
+    public Light lightEnemy;
+
+    public float delayTime = 1.0f;
+
     public enum AIState
     {
         isDead, isSeekTargetPoint, isSeekPlayer, isAttack
@@ -36,11 +40,15 @@ public class EnemyController : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
         Debug.Log(distanceToPlayer);
 
+        bool playerDetected = distanceToPlayer <= 100f && distanceToPlayer >= 1f && !PlayerController.instance.isDead;
+        LightPlayer(playerDetected);
+
         if (!PlayerController.instance.isDead)
         {
             if (distanceToPlayer >= 5 && distanceToPlayer <= 100f)
             {
                 state = AIState.isSeekPlayer;
+
             }
             else if (distanceToPlayer > 8)
             {
@@ -109,6 +117,18 @@ public class EnemyController : MonoBehaviour
         Vector3 direction = (PlayerController.instance.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 5f * Time.deltaTime);
+    }
+
+    void LightPlayer(bool playerDetected)
+    {
+        if (playerDetected)
+        {
+            lightEnemy.color = Color.red;
+        }
+        else
+        {
+            lightEnemy.color = Color.green;
+        }
     }
 
 }
