@@ -697,6 +697,7 @@ MonoBehaviour:
   waitAtPoint: 2
   distanceToPlayer: 0
   lightEnemy: {fileID: 1738563544}
+  delayTime: 1
   state: 0
 --- !u!4 &29274916
 Transform:
@@ -2333,7 +2334,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 47052c49d4091564f90490dd938de084, type: 3}
   - {fileID: 8300000, guid: c0fc8d0e10509dd46bd35221e94d18b3, type: 3}
   playerJumping: {fileID: 8300000, guid: 621eed25c33db634e9e40c017749aef3, type: 3}
+  playerdead: {fileID: 8300000, guid: 5b7ef79ed853fc94096d29d47304fe11, type: 3}
+  playerHeal: {fileID: 8300000, guid: fde924ee5460b8d4e811c78c05c1df58, type: 3}
+  playerFlash: {fileID: 8300000, guid: 0d39828667dfe8b4bb33a778171fe7e6, type: 3}
   pos: 0
+  isCooldown: 0
+  cooldownTime: 5
 --- !u!82 &228748879
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7963,6 +7969,7 @@ MonoBehaviour:
   waitAtPoint: 2
   distanceToPlayer: 0
   lightEnemy: {fileID: 167972392}
+  delayTime: 1
   state: 0
 --- !u!4 &366732783
 Transform:
@@ -7979,6 +7986,134 @@ Transform:
   m_Children:
   - {fileID: 167972393}
   - {fileID: 1385736213}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &373533534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373533536}
+  - component: {fileID: 373533535}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &373533535
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373533534}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5ef078b4dd370e6448ac7aa1793e7a13, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &373533536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373533534}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &380341530
@@ -12011,6 +12146,7 @@ MonoBehaviour:
   waitAtPoint: 2
   distanceToPlayer: 0
   lightEnemy: {fileID: 1709784023}
+  delayTime: 1
   state: 0
 --- !u!4 &913831989
 Transform:
@@ -18075,6 +18211,7 @@ SceneRoots:
   - {fileID: 553779549}
   - {fileID: 1678282362}
   - {fileID: 1390161862}
+  - {fileID: 373533536}
   - {fileID: 570907244}
   - {fileID: 36480001}
   - {fileID: 1095484244}

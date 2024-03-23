@@ -199,11 +199,11 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Cooldown()
     {
+        isCooldown = true;
         yield return new WaitForSeconds(cooldownTime);
         isDead = false;
         isInvincible = false;
         Heal.Stop();
-        isCooldown = true;
         yield return new WaitForSeconds(cooldownTime*2);
         isCooldown = false;
     }

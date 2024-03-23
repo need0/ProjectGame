@@ -1233,6 +1233,7 @@ MonoBehaviour:
   waitAtPoint: 2
   distanceToPlayer: 0
   lightEnemy: {fileID: 221419227}
+  delayTime: 1
   state: 0
 --- !u!4 &317087363
 Transform:
@@ -2647,6 +2648,7 @@ MonoBehaviour:
   waitAtPoint: 2
   distanceToPlayer: 0
   lightEnemy: {fileID: 2134924423}
+  delayTime: 1
   state: 0
 --- !u!4 &1405493038
 Transform:
@@ -3001,6 +3003,7 @@ MonoBehaviour:
   waitAtPoint: 2
   distanceToPlayer: 0
   lightEnemy: {fileID: 186155990}
+  delayTime: 1
   state: 0
 --- !u!4 &1701207935
 Transform:
@@ -8007,7 +8010,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 47052c49d4091564f90490dd938de084, type: 3}
   - {fileID: 8300000, guid: c0fc8d0e10509dd46bd35221e94d18b3, type: 3}
   playerJumping: {fileID: 8300000, guid: 621eed25c33db634e9e40c017749aef3, type: 3}
+  playerdead: {fileID: 8300000, guid: 5b7ef79ed853fc94096d29d47304fe11, type: 3}
+  playerHeal: {fileID: 0}
+  playerFlash: {fileID: 0}
   pos: 0
+  isCooldown: 0
+  cooldownTime: 5
 --- !u!82 &1746731538
 AudioSource:
   m_ObjectHideFlags: 0

@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Test.cs" />
+    <Compile Include="Assets\Script\PlayerdeadSound.cs" />
     <Compile Include="Assets\Script\PlayerRunfootStep.cs" />
     <Compile Include="Assets\Script\CheckWinner.cs" />
     <Compile Include="Assets\Script\PlayerSound.cs" />
