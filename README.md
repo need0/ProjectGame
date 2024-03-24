@@ -9,5 +9,10 @@
 2113210179 พริมพร จิริศานต์
 2113210948 ธนาวุฒิ บุญไทย
 
-Link
+Link VideoReview
 https://drive.google.com/file/d/1aDkPe1HCpf-5v4G8lYhLyt3gjFpl3rNm/view?usp=sharing
+
+Export game
+
+https://drive.google.com/file/d/1-zrB6DY_d7qfNAq2p4Acs8FxgCeQE9HT/view?usp=sharing
+
